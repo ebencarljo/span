@@ -22,7 +22,8 @@
 
 <body <?php body_class(); ?>>
     <!-- Full Body Container -->
-    <div id="container">
+    <?php // var_dump( span_hopt( 'layout', span_tag_hierarchy(), 'wide-page' ) );?>
+    <div id="container" class="<?php echo span_hopt( 'layout', span_tag_hierarchy(), 'wide-page' );?>">
 		<!-- Start Header Section -->
       <div class="hidden-header">
       </div>

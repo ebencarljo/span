@@ -209,8 +209,8 @@ Redux::setSection( $opt_name, array(
 				'desc'	  => __( 'This settings can be overrided by more specific settings such as those applyied on blog.', 'span' ),
 				 //Must provide key => value pairs for options
 				 'options' => array(
-					  'boxed' => __( 'Boxed version', 'span' ), 
-					  'wide' => __( 'Wide version', 'span' )
+					  'boxed-page' => __( 'Boxed version', 'span' ), 
+					  'wide-page' => __( 'Wide version', 'span' )
 				  ), 
 				 'default' => 'full'
 			)

@@ -10,12 +10,12 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package span
+ * @options : layout,
  */
 ?>
 <?php get_header(); ?>
 
 <?php get_template_part( 'page' , 'banner' );?>
-
 <div id="content">
    <div class="container">
       <div class="row sidebar-page"> 

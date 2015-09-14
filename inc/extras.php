@@ -608,16 +608,16 @@ function span_stylesheet( $link ) {
  *
 **/
 
-function span_hopt( $opt_name, $parents_namespace , $defaut_prefix = null ){
-	if( $defaut_prefix !== null ){
-		$option_prefix 	=	$defaut_prefix;
+function span_hopt( $opt_name, $parents_namespace , $default = false, $default_prefix = null ){
+	if( $default_prefix !== null ){
+		$option_prefix 	=	$default_prefix;
 	} elseif( is_page() ){
 		$option_prefix 	=	'page_';
 	} elseif( is_archive() ){ // tag, Category
 		$option_prefix 	=	'archive_';
 	} elseif( is_home() ){
 		$option_prefix 	=	'blog_';
-	} elseif( is_frontpage() && ! is_home() ){
+	} elseif( is_front_page() && ! is_home() ){
 		$option_prefix 	=	'fpage_';
 	} elseif( is_single() ){
 		$option_prefix 	=	'single_';
@@ -630,12 +630,43 @@ function span_hopt( $opt_name, $parents_namespace , $defaut_prefix = null ){
 		return span_opt( $option_prefix . $opt_name );
 	}
 	// Looping options names
-	$opt	= span_opt( $option_prefix . $opt_name );
+	$opt_full	=	$option_prefix . $opt_name;
+	$opt	= span_opt( $opt_full );
+	var_dump( $opt_full , $parents_namespace );
 	if( is_array( $parents_namespace ) && ! empty( $parents_namespace ) ) {
 		if( ! $opt ) {
-			$defaut_prefix	=	$parents_namespace[0];
-			return span_opt( $opt_name, array_shift( $parents_namespace ), $defaut_prefix );
+			$default_prefix	=	$parents_namespace[0];
+			return span_hopt( $opt_name, array_shift( $parents_namespace ), $default, $default_prefix );
 		}
 	}
-	return $opt; // if options exists
+	return ( $opt ? $opt : $default ); // if options exists
+}
+
+/**
+ * span_tag_hierarchy()
+ * get page hierarchy
+ *
+ * @access public
+ * @return array
+**/
+
+function span_tag_hierarchy() {
+	if( is_page() ){
+		$hierarchy			=	array( 'general_' );
+	} elseif( is_archive() ){ // tag, Category
+		$hierarchy			=	array( 'blog_', 'general_' );
+	} elseif( is_home() ){
+		$hierarchy			=	array( 'general_' );
+	} elseif( is_front_page() && ! is_home() ){
+		$hierarchy			=	array( 'general_' );
+	} elseif( is_single() ){
+		$hierarchy			=	array( 'blog_', 'general_' );
+	} elseif( is_author() ){
+		$hierarchy			=	array( 'general_' );
+	} elseif( is_search() ){
+		$hierarchy			=	array( 'general_' );
+	} else { // general options is applied
+		$hierarchy			=	array( 'general_' );
+	}
+	return $hierarchy;
 }
