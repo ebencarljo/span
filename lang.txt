@@ -1,0 +1,71 @@
+// inc/template-tags.php 
+Edit 
+Leave a comment
+1 Comment
+Tagged %
+Posted in %
+% Comment
+
+
+// /comments.php
+
+Comment
+Leave a reply
+
+// /page-banner.php
+
+Tag %s
+
+// /inc/comments-walker.php
+
+Posted by : %s
+Your comment is awaiting moderation.
+%s Reply
+
+// /admin/parts/general.php
+General Options
+Top Bar Social Profiles
+You can order social profile link. If a social profile field is empty, it won\'t be displayed
+General Options for Span Theme
+Provide links for your social profiles
+Define and reorder these however you want
+You can order the top bar details. If a social field is empty, it won\'t be displayed
+Provide links for top bar details
+Top Bar Details
+Desktop Logo
+You can upload a media to define as logo for desktop and laptops
+Choose a file to upload from your media library
+You can choose specific file as logo for you site for different devices.
+Footer Copyright
+You can set custom copyright on footer.
+Underconstruct Mode
+You can enable underconstruct mode to hide you work to people, but by giving access to specific user role.
+Enable Underconstruct mode
+Clic "yes" to enable underconstruct mode
+Footer palette
+You can set custom palette for footer.
+If you don\'t want to spend time trying to find the better combinasion, you can use predefined palette.
+Use Palette
+You can use Palette or Custom Color.
+Color Type
+Footer Background Color
+Pick a color for footer background.
+Footer Text Color
+Pick a color for footer text.
+Footer link Color
+Pick a color for footer link.
+Footer Link Color on Hover
+Pick a color for footer link on hover.
+Footer Height
+This let you enhance or reduce footer height.
+You can set up to 400px as height.
+This section let you customize footer options.
+Footer Text Size
+This let you enhance or reduce footer text size.
+You can change the layout and the design option here.
+Set General Layout for your website.
+This settings can be overrided by more specific settings such as those applyied on blog.
+Boxed version
+Wide version
+Google Analaytics Tracking Code
+You can provide your Google Analytics in order to track user visit.
