@@ -507,7 +507,7 @@ if( ! function_exists( 'span_opt' ) ) {
         } elseif( $option === null ) {
             return $span_options;
         }
-        return false;
+        return NULL;
     }
 }
 
@@ -612,9 +612,9 @@ function span_hopt( $opt_name, $parents_namespace , $default = false, $default_p
 	if( $default_prefix !== null ){
 		$option_prefix 	=	$default_prefix;
 	} elseif( is_page() ){
-		$option_prefix 	=	'page_';
+		$option_prefix 	=	'pages_';
 	} elseif( is_archive() ){ // tag, Category
-		$option_prefix 	=	'archive_';
+		$option_prefix 	=	'archives_';
 	} elseif( is_home() ){
 		$option_prefix 	=	'blog_';
 	} elseif( is_front_page() && ! is_home() ){
@@ -622,7 +622,7 @@ function span_hopt( $opt_name, $parents_namespace , $default = false, $default_p
 	} elseif( is_single() ){
 		$option_prefix 	=	'single_';
 	} elseif( is_author() ){
-		$option_prefix 	=	'author_';
+		$option_prefix 	=	'authors_';
 	} elseif( is_search() ){
 		$option_prefix 	=	'search_';
 	} else { // general options is applied
@@ -632,14 +632,14 @@ function span_hopt( $opt_name, $parents_namespace , $default = false, $default_p
 	// Looping options names
 	$opt_full	=	$option_prefix . $opt_name;
 	$opt	= span_opt( $opt_full );
-	var_dump( $opt_full , $parents_namespace );
 	if( is_array( $parents_namespace ) && ! empty( $parents_namespace ) ) {
 		if( ! $opt ) {
 			$default_prefix	=	$parents_namespace[0];
-			return span_hopt( $opt_name, array_shift( $parents_namespace ), $default, $default_prefix );
+			array_shift( $parents_namespace );
+			return span_hopt( $opt_name, $parents_namespace, $default, $default_prefix );
 		}
 	}
-	return ( $opt ? $opt : $default ); // if options exists
+	return ( $opt !== NULL ? $opt : $default ); // if options exists
 }
 
 /**
@@ -669,4 +669,77 @@ function span_tag_hierarchy() {
 		$hierarchy			=	array( 'general_' );
 	}
 	return $hierarchy;
+}
+
+/**
+ * Span Skin
+ * returns span skin collection
+ *
+ * @access public
+ * @return array
+**/
+
+function span_skin_collection() {
+	return array(
+	 'red'  => array(
+		  '#ee3733',
+		  '#fff',
+		  '#666',
+	 ),
+	 'jade'  => array(
+		  '#0bb586',
+		  '#fff',
+		  '#666',
+	 ),
+	 'green'  => array(
+		  '#94c523',
+		  '#fff',
+		  '#666',
+	 ),
+	 'blue'  => array(
+		  '#0a9fd8',
+		  '#fff',
+		  '#666',
+	 ),
+	 'beige'  => array(
+		  '#fdb655',
+		  '#fff',
+		  '#666',
+	 ),
+	 'cyan'  => array(
+		  '#27bebe',
+		  '#fff',
+		  '#666',
+	 ),
+	 'orange'  => array(
+		  '#f36510',
+		  '#fff',
+		  '#666',
+	 ),
+	 'peach'  => array(
+		  '#f49237',
+		  '#fff',
+		  '#666',
+	 ),
+	 'pink'  => array(
+		  '#f1505b',
+		  '#fff',
+		  '#666',
+	 ),
+	 'purple'  => array(
+		  '#6a3da3',
+		  '#fff',
+		  '#666',
+	 ),
+	 'sky-blue'  => array(
+		  '#38cbcb',
+		  '#fff',
+		  '#666',
+	 ),
+	 'yellow'  => array(
+		  '#f8ba01',
+		  '#fff',
+		  '#666',
+	 ),
+);
 }

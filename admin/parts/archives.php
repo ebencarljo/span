@@ -7,3 +7,5 @@ Redux::setSection( $opt_name, array(
     'customizer_width' => '400px',
     'icon'             => 'el el-folder-open'
 ) );
+
+span_opt_layout( 'archives' );

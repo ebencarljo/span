@@ -12,6 +12,7 @@
 
     // This is your option name where all the Redux data is stored.
     $opt_name = "span_options";
+	 define( 'SPAN_OPT_NAME', $opt_name );
 
     /**
      * ---> SET ARGUMENTS

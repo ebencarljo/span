@@ -30,7 +30,7 @@ class Span_Desktop_Menu_Walker extends Walker_Nav_Menu
 			  ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
 			  ( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
 			  'menu-item-depth-' . $depth,            
-              ( $args->walker->has_children ?  'drop' : '' )
+           ( is_object( $args ) ? ( $args->walker->has_children ?  'drop' : '' ) : null )
 		 );
          
 		 $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
@@ -50,12 +50,12 @@ class Span_Desktop_Menu_Walker extends Walker_Nav_Menu
 		 $attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
 	  
 		 $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
-			  $args->before,
+			  ( is_object( $args ) ? $args->before : null ),
 			  $attributes,
-			  $args->link_before,
+			  ( is_object( $args ) ? $args->link_before : null ),
 			  apply_filters( 'the_title', $item->title, $item->ID ),
-			  $args->link_after,
-			  $args->after
+			  ( is_object( $args ) ? $args->link_after : null ),
+			  ( is_object( $args ) ? $args->after : null )
 		 );
 	  
 		 // build html

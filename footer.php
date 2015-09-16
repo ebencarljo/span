@@ -48,19 +48,25 @@
       <div class="copyright-section">
         <div class="container">
           <div class="row">
-            <div class="col-sm-6">
-              <p><?php echo esc_js( span_opt( 'footer_copyright' ) );?></p>
+            <div class="col-sm-5">
+              <p><?php echo $copyright = span_opt( 'general_footer_copyright' ) ? esc_js( $copyright ) : __( 'Span WordPress Multipurpose Theme by Blair Jersyer', 'span' );?></p>
             </div>
             <!-- .col-md-6 -->
-            <div class="col-sm-6">
-              <?php wp_nav_menu( array(
-						'theme_location'	=>	'footer',
-						'container'			=>	false,
-						'menu_class'		=>	'nav navbar-nav navbar-right',
-						'items_wrap'		=>	'<ul id="%1$s" class="footer-nav">%3$s</ul>',
-						'link_after'		=>	' /',
-						'walker'				=>	new Span_Desktop_Menu_Walker
-				  ) );?>
+            <div class="col-sm-7">
+            <?php
+				$menu_array		=	array(
+					'theme_location'	=>	'footer',
+					'container'			=>	false,
+					'menu_class'		=>	'nav navbar-nav navbar-right',
+					'items_wrap'		=>	'<ul id="%1$s" class="footer-nav">%3$s</ul>',
+					'link_after'		=>	' /',
+					'walker'				=>	new Span_Desktop_Menu_Walker
+			  );
+			  if( ! in_array( $menu_id	= span_hopt( 'footer_menu', span_tag_hierarchy(), NULL ), array( '', NULL ), TRUE ) ) { // Displays custom menu if it's set
+				  $menu_array[ 'menu' ] 	=	$menu_id;
+			  }
+			  ?>
+              <?php wp_nav_menu( $menu_array );?>
             </div>
             <!-- .col-md-6 -->
           </div>
@@ -72,19 +78,19 @@
 <?php wp_footer(); ?>
 <style>
 <?php
-$footer_color_palette = span_color_palette( 'footer' );
-$footer_color_type      = span_opt( 'footer_color_type' );
+$footer_color_palette 	= span_color_palette( 'footer' );
+$footer_color_type      = span_hopt( 'footer_color_type', span_tag_hierarchy(), '#EEE' );
 // Custom Colors
-$footer_link_color      = span_opt( 'footer_link_color' );
-$footer_link_hover      = span_opt( 'footer_link_hover' );
-$footer_bck             = span_opt( 'footer_bg_color' );
-$footer_text_color      = span_opt( 'footer_text_color' );
+$footer_link_color      = span_hopt( 'footer_link_color', span_tag_hierarchy(), '#F60' );
+$footer_link_hover      = span_hopt( 'footer_link_hover', span_tag_hierarchy(), '#F60' );
+$footer_bck             = span_hopt( 'footer_bg_color', span_tag_hierarchy(), '#999' );
+$footer_text_color      = span_hopt( 'footer_text_color', span_tag_hierarchy(), '#DDD' );
 // Palette
-$footer_palette         = span_opt( 'footer_palette' );
+$footer_palette         = span_hopt( 'footer_palette', span_tag_hierarchy(), 'default' );
 // Padding
-$footer_padding         = span_opt( 'footer_padding' );
+$footer_padding         = span_hopt( 'footer_padding', span_tag_hierarchy(), '25px' );
 // Size
-$footer_size            = span_opt( 'footer_text_size' );
+$footer_size            = span_hopt( 'footer_text_size', span_tag_hierarchy(), '15px' );
 
 // Footer Custom Colors
 if( ! empty( $footer_link_color ) && ! empty( $footer_link_hover ) && ! empty( $footer_bck ) && ! empty( $footer_text_color ) && ! $footer_color_type ) {

@@ -35,7 +35,6 @@ Top Bar Details
 Desktop Logo
 You can upload a media to define as logo for desktop and laptops
 Choose a file to upload from your media library
-You can choose specific file as logo for you site for different devices.
 Footer Copyright
 You can set custom copyright on footer.
 Underconstruct Mode
@@ -59,13 +58,24 @@ Pick a color for footer link on hover.
 Footer Height
 This let you enhance or reduce footer height.
 You can set up to 400px as height.
-This section let you customize footer options.
 Footer Text Size
 This let you enhance or reduce footer text size.
 You can change the layout and the design option here.
-Set General Layout for your website.
-This settings can be overrided by more specific settings such as those applyied on blog.
+// Set General Layout for your website.
+This settings can be overrided by more specific settings such as those applied on blog.
 Boxed version
 Wide version
 Google Analaytics Tracking Code
 You can provide your Google Analytics in order to track user visit.
+
+// /inc/options-fields.php
+
+You can set %s Layout for your website. // for blog, general, author, archive, search, single...
+Offset Background
+Select an image you want to apply as background.
+Offset Background for %s
+Color Scheme
+Set a color scheme for %s
+This section let you customize %s footer options.
+You can choose specific file as logo for you site for different devices.
+Footer Copyright

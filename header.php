@@ -20,16 +20,16 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> style="background:url(<?php echo span_hopt( 'offset_background', span_tag_hierarchy(), '#999' );?>)">
     <!-- Full Body Container -->
-    <?php // var_dump( span_hopt( 'layout', span_tag_hierarchy(), 'wide-page' ) );?>
     <div id="container" class="<?php echo span_hopt( 'layout', span_tag_hierarchy(), 'wide-page' );?>">
 		<!-- Start Header Section -->
       <div class="hidden-header">
       </div>
       <header class="clearfix" style="<?php echo span_header_top_offset();?>">
         <!-- Start Top Bar -->
-        <div class="top-bar">
+        <?php if( intval( span_hopt( 'display_topbar', span_tag_hierarchy(), '1' ) ) == true ):?>
+        <div class="top-bar <?php echo intval( span_hopt( 'use_skin', span_tag_hierarchy(), '1' ) ) == true ? 'color-bar' : '';?>">
           <div class="container">
             <div class="row">
               <div class="col-md-7 col-sm-9">
@@ -89,6 +89,7 @@
             </div>
           </div>
         </div>
+        <?php endif;?>
         <!-- End Top Bar -->
         <!-- Start  Logo & Naviagtion  -->
         <div class="navbar navbar-default navbar-top">

@@ -214,7 +214,7 @@ function span_scripts() {
 	
 	wp_enqueue_style( 'span-style', get_stylesheet_uri() );
 	
-	wp_enqueue_style( 'span-pink', get_stylesheet_directory_uri() . '/css/colors/pink.css' );
+	wp_enqueue_style( 'span-pink', get_stylesheet_directory_uri() . '/css/colors/'. span_hopt( 'color_scheme' , span_tag_hierarchy(), 'green' ) . '.css' );
 	
 	// JS FILES
 	wp_enqueue_script( 'span-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20120206', true );
@@ -309,6 +309,12 @@ require get_template_directory() . '/inc/widgets/widget.comments.php';
 require get_template_directory() . '/inc/widgets/widget.meta.php';
 require get_template_directory() . '/inc/widgets/widget.tagcloud.php';
 require get_template_directory() . '/inc/widgets/widget.archive.php';
+
+/**
+ * Reusable Options
+**/
+
+require get_template_directory() . '/inc/options-fields.php';
 
 /** 
  * Include Admin Folder
