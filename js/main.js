@@ -69,17 +69,23 @@ jQuery(document).ready(function(jQuery) {
   "use strict";
   ////	Hidder Header
   var headerEle = function() {
-    var jQueryheaderHeight = jQuery('header').height();
+    var jQueryheaderHeight = jQuery('header').outerHeight();
     jQuery('.hidden-header').css({
-      'height': jQueryheaderHeight + "px"
+      'height': parseInt( jQueryheaderHeight ) + "px"
     });
+	 jQuery('#container').find( 'header' ).eq(0).css({
+		 'top': jQuery('#wpadminbar').height() + 'px'
+	 });
   };
+  
   jQuery(window).load(function() {
     headerEle();
   });
   jQuery(window).resize(function() {
     headerEle();
   });
+  
+  
 
   // Progress Bar
   jQuery('.skill-shortcode').appear(function() {

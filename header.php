@@ -103,7 +103,8 @@
               </button>
               <!-- End Toggle Nav Link For Mobiles -->
               <a class="navbar-brand" href="<?php echo home_url( '/' );?>">
-              <img alt="" src="<?php echo ! empty( $logo = span_opt( 'desktop_logo' ) ) ? $logo['url'] : get_template_directory_uri() . '/images/logo.png';?>">
+              <?php $logo = span_opt( 'desktop_logo' );?>
+              <img alt="" src="<?php echo ( ! empty( $logo ) ? $logo['url'] : get_template_directory_uri() . '/images/logo.png' );?>">
               </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -129,6 +130,7 @@
               <!-- Start Navigation List -->
               <?php wp_nav_menu( array(
                     'theme_location'	=>	'primary',
+						  'container'			=>	'',
                     'menu_class'		=>	'nav navbar-nav navbar-right',
                     'items_wrap'		=>	'<ul id="%1$s" class="%2$s">%3$s</ul>',
                     'walker'				=>	new Span_Desktop_Menu_Walker
@@ -140,10 +142,10 @@
           <!-- Mobile Menu Start -->
           <?php wp_nav_menu( array(
                 'theme_location'	=>	'header_mobile',
-                'container'			=>	false,
-                'menu_class'		=>	'nav navbar-nav navbar-right',
+                'container'		=>	'',
+                'menu_class'		=>	'mobile-menu',
                 'items_wrap'		=>	'<ul id="%1$s" class="wpb-mobile-menu %2$s">%3$s</ul>',
-                'walker'				=>	new Span_Desktop_Menu_Walker
+                'walker'			=>	new Span_Desktop_Menu_Walker
           ) );?>
           <!-- Mobile Menu End -->
 

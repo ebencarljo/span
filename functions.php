@@ -202,17 +202,19 @@ function span_scripts() {
 	
 	wp_enqueue_style( 'span-bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.min.css' );
 	
-	wp_enqueue_style( 'span-animate', get_stylesheet_directory_uri() . '/css/animate.css' );
+	wp_enqueue_style( 'span-style', get_stylesheet_uri() );
+	
+	wp_enqueue_style( 'span-slicknav', get_stylesheet_directory_uri() . '/css/slicknav.css' );
 	
 	wp_enqueue_style( 'span-responsive', get_stylesheet_directory_uri() . '/css/responsive.css' );
+	
+	wp_enqueue_style( 'span-animate', get_stylesheet_directory_uri() . '/css/animate.css' );
 	
 	wp_enqueue_style( 'span-settings', get_stylesheet_directory_uri() . '/css/settings.css' );
 	
 	wp_enqueue_style( 'span-fontawesome', get_stylesheet_directory_uri() . '/fonts/font-awesome.min.css' );
 	
 	wp_enqueue_style( 'span-simpleicon', get_stylesheet_directory_uri() . '/fonts/simple-line-icons.css' );
-	
-	wp_enqueue_style( 'span-style', get_stylesheet_uri() );
 	
 	wp_enqueue_style( 'span-pink', get_stylesheet_directory_uri() . '/css/colors/'. span_hopt( 'color_scheme' , span_tag_hierarchy(), 'green' ) . '.css' );
 	

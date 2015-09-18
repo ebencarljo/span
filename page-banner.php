@@ -1,5 +1,5 @@
 <!-- Start Page Banner -->
-<div class="page-banner" style="margin-top:<?php // echo span_page_header_topmargin();?>px">
+<div class="page-banner">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-sm-6">
