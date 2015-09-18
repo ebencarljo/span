@@ -91,6 +91,7 @@
         </div>
         <?php endif;?>
         <!-- End Top Bar -->
+        <?php if( intval( span_hopt( 'display_header', span_tag_hierarchy(), '1' ) ) == true ):?>
         <!-- Start  Logo & Naviagtion  -->
         <div class="navbar navbar-default navbar-top">
           <div class="container">
@@ -148,4 +149,5 @@
 
         </div>
         <!-- End Header Logo & Naviagtion -->
+        <?php endif;?>
       </header>

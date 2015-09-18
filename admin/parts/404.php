@@ -8,4 +8,10 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-circle'
 ) );
 
-span_opt_layout( '404' );
+span_opt_topbar( 'general' );
+
+span_opt_header( 'general' );
+
+span_opt_footer( 'general' );
+
+span_opt_layout( 'general' );

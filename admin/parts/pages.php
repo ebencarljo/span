@@ -8,6 +8,10 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-file'
 ) );
 
-span_opt_layout( 'pages' );
+span_opt_topbar( 'pages' );
+
+span_opt_header( 'pages' );
 
 span_opt_footer( 'pages' );
+
+span_opt_layout( 'pages' );

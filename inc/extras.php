@@ -632,8 +632,9 @@ function span_hopt( $opt_name, $parents_namespace , $default = false, $default_p
 	// Looping options names
 	$opt_full	=	$option_prefix . $opt_name;
 	$opt	= span_opt( $opt_full );
+	// var_dump( $opt_name, $opt, $parents_namespace );
 	if( is_array( $parents_namespace ) && ! empty( $parents_namespace ) ) {
-		if( ! $opt ) {
+		if( $opt === NULL ) {
 			$default_prefix	=	$parents_namespace[0];
 			array_shift( $parents_namespace );
 			return span_hopt( $opt_name, $parents_namespace, $default, $default_prefix );

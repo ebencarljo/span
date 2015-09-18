@@ -10,6 +10,8 @@ Redux::setSection( $opt_name, array(
 
 span_opt_topbar( 'blog' );
 
-span_opt_layout( 'blog' );
+span_opt_header( 'blog' );
 
 span_opt_footer( 'blog' );
+
+span_opt_layout( 'blog' );

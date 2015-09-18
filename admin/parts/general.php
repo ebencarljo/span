@@ -8,6 +8,14 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-home'
 ) );
 
+span_opt_topbar( 'general' );
+
+span_opt_header( 'general' );
+
+span_opt_footer( 'general' );
+
+span_opt_layout( 'general' );
+
 // Logo Details
 Redux::setSection( $opt_name, array(
     'title'            => __( 'Logo', 'span' ),
@@ -29,10 +37,3 @@ Redux::setSection( $opt_name, array(
         )
     )
 ) );
-
-
-span_opt_topbar( 'general' );
-
-span_opt_layout( 'general' );
-
-span_opt_footer( 'general' );

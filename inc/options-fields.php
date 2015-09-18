@@ -225,7 +225,7 @@ function span_opt_topbar( $namespace ) {
 		 'desc'		=>	__( 'You can use main skin color on topbar. Else Dark style is used.', 'span' ),
 		 'default'  => true,
 	);
-
+	// Loading Option
 	Redux::setSection( SPAN_OPT_NAME, array(
 		 'title'            => __( 'Top Bar', 'span' ),
 		 'id'               => $namespace . '_topbar',
@@ -233,7 +233,44 @@ function span_opt_topbar( $namespace ) {
 		 'customizer_width' => '450px',
 		 'desc'             => __( 'You can order social profile link. If a social profile field is empty, it won\'t be displayed', 'span'),
 		 'fields'           => $fields
+	) );	
+}
+
+/**
+ * Header Options
+**/
+
+function span_opt_header( $namespace ) {
+	// Displays Header
+	$fields[]	=	array(
+		 'id'       => $namespace . '_display_header',
+		 'type'     => 'switch', 
+		 'title'    => __('Display Header', 'span'),
+		 'default'  => true,
+	);
+	// mobile menu
+	$fields[]			=	array(
+		 'id'       => $namespace . '_mobile_menu',
+		 'type'     => 'select',
+		 'title'    => __('Select a mobile menu', 'span'), 
+		 'desc'     => __('This menu will be displayed only on mobile device.<br>If this field is empty default menu defined on "<strong>Appreance > Menus</strong>" will be used instead.', 'span'),
+		 'data'		=>	'menus'
+	);
+	// desktop mobile
+	$fields[]			=	array(
+		 'id'       => $namespace . '_desktop_menu',
+		 'type'     => 'select',
+		 'title'    => __('Select a desktop menu', 'span'), 
+		 'desc'     => __('This menu will be displayed only on desktop.<br>If this field is empty default menu defined on "<strong>Appreance > Menus</strong>" will be used instead.', 'span'),
+		 'data'		=>	'menus'
+	);
+	
+	Redux::setSection( SPAN_OPT_NAME, array(
+		 'title'            => __( 'Header', 'span' ),
+		 'id'               => $namespace . '_header',
+		 'subsection'       => true,
+		 'customizer_width' => '450px',
+		 'desc'             => sprintf( __( 'This hold options for %s header options', 'span'), ucwords( $namespace ) ),
+		 'fields'           => $fields
 	) );
-	
-	
 }
