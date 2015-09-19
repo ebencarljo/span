@@ -28,7 +28,7 @@
          <?php endif;?>
          
          <!-- Page Content -->
-         <div class="col-md-<?php echo ( span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'no-sidebar' ) ? 12 : 9;?> page-content"> 
+         <div class="col-md-<?php echo span_body_width();?> page-content"> 
             <!-- Classic Heading -->
             <?php while ( have_posts() ) : the_post(); ?>
             

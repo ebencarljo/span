@@ -746,9 +746,9 @@ function span_skin_collection() {
 }
 
 /**
- * Span Sidebar Manager
+ * Body Length
 **/
 
-function span_sidebar_layout( $format ) {
-	
+function span_body_width() {
+	return ( span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'no-sidebar' ) ? 12 : 9;
 }

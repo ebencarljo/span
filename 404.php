@@ -14,8 +14,12 @@ get_header(); ?>
 <div id="content">
   <div class="container">
     <div class="row">
+    	<!--Sidebar-->
+      <?php get_sidebar( 'left' );?>
+      <!--End sidebar-->
+      
       <!-- Start Blog Posts -->
-      <div class="col-md-9">
+      <div class="col-md-<?php echo span_body_width();?> page404-body">
         <!-- Start Post -->       
         <?php
 			/*

@@ -251,7 +251,7 @@ function span_scripts() {
 add_action( 'wp_enqueue_scripts', 'span_scripts' );
 
 // Vendor
-require get_template_directory() . '/vendor/plugins/custom-sidebars/customsidebars.php';
+require get_template_directory() . '/thirds/custom-sidebars/customsidebars.php';
 
 /**
  * Implement the Custom Header feature.

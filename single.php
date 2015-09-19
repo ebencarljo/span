@@ -14,8 +14,12 @@
 <div id="content">
    <div class="container">
       <div class="row sidebar-page"> 
+      	<!--Sidebar-->
+         <?php get_sidebar( 'left' );?>
+         <!--End sidebar--> 
+         
          <!-- Page Content -->
-         <div class="col-md-9 page-content"> 
+         <div class="col-md-<?php echo span_body_width();?> page-content"> 
             <!-- Classic Heading -->
             <?php while ( have_posts() ) : the_post(); ?>
             
