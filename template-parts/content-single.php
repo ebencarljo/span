@@ -19,9 +19,11 @@
       </span>
    </div>
    <!-- Post feature-inner -->
-   <div class="feature-inner"> 
-   	<a class="lightbox" href="<?php echo span_post_thumb( 'full' );?>"><img src="<?php echo span_post_thumb( 'blog-posts' );?>" alt=""></a> 
-	</div>
+   <?php
+	$blog_post	=	span_post_thumb( 'blog-posts' );
+	$full_blog	=	span_post_thumb( 'full-blog' );
+	?>
+   <div class="feature-inner"> <a class="lightbox" href="<?php echo span_post_thumb( 'full' );?>"><img src="<?php echo span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'no-sidebar' ? $full_blog : $blog_post;?>" alt=""></a> </div>
    <!-- End Post feature-inner -->
    <?php endif;?>
    <!-- Post Content -->

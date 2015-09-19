@@ -8,10 +8,7 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-file-new'
 ) );
 
-span_opt_topbar( 'blog' );
+global $option_namespace;
+$option_namespace = 'blog';
 
-span_opt_header( 'blog' );
-
-span_opt_footer( 'blog' );
-
-span_opt_layout( 'blog' );
+require( get_template_directory() . '/admin/parts/_global-options.php' );

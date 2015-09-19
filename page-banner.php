@@ -1,3 +1,4 @@
+<?php if( intval( span_hopt( 'display_pbanner', span_tag_hierarchy(), '1' ) ) == true ):?>
 <!-- Start Page Banner -->
 <div class="page-banner">
   <div class="container">
@@ -19,18 +20,23 @@
 	      $userdata = get_userdata($author);
 			$title	=	ucwords( $userdata->display_name );
 		} elseif( is_search() ){
-			$title	=	printf( esc_html__( 'Search Results for: %s', 'span' ), '<span>' . get_search_query() . '</span>' );
+			$title	=	sprintf( esc_html__( 'Search Results for: %s', 'span' ), '<span>' . get_search_query() . '</span>' );
+		} elseif( is_404() ) {
+			$title	=	__( 'Page Not Found', 'span' );
 		} else { // check for page
 			global $post;
 			$title	=	esc_html( $post->post_title );
 		}
 		?>
-      <h2><?php echo esc_html( $title );?></h2>
+      <h2><?php echo $title;?></h2>
       </div>
-      <div class="col-md-6 col-sm-6">
+      <?php if( intval( span_hopt( 'display_breads', span_tag_hierarchy(), '1' ) ) == true ):?>
+      <div class="col-md-6 col-sm-6 span-breadscrumbs">
       	<?php echo span_breadcrumbs();?>
       </div>
+      <?php endif;?>
     </div>
   </div>
 </div>
 <!-- End Page Banner -->
+<?php endif;?>

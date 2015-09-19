@@ -8,4 +8,7 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-folder-open'
 ) );
 
-span_opt_layout( 'archives' );
+global $option_namespace;
+$option_namespace = 'archives';
+
+require( get_template_directory() . '/admin/parts/_global-options.php' );

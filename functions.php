@@ -83,6 +83,7 @@ function span_setup() {
 	// Image Size
 	add_image_size( 'blog-posts', 848, 435, true ); // with a sidebar (left or right)
 	add_image_size( 'widget-thumb' , 90, 60, true );
+	add_image_size( 'full-blog' , 1140, 400, true );
 }
 endif; // span_setup
 add_action( 'after_setup_theme', 'span_setup' );
@@ -248,6 +249,9 @@ function span_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'span_scripts' );
+
+// Vendor
+require get_template_directory() . '/vendor/plugins/custom-sidebars/customsidebars.php';
 
 /**
  * Implement the Custom Header feature.

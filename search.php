@@ -51,3 +51,4 @@ get_header(); ?>
   </div>
 </div>
 <!-- End Content -->
+<?php get_footer();?>

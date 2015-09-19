@@ -8,4 +8,7 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-adult'
 ) );
 
-span_opt_layout( 'authors' );
+global $option_namespace;
+$option_namespace = 'authors';
+
+require( get_template_directory() . '/admin/parts/_global-options.php' );

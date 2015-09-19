@@ -274,3 +274,92 @@ function span_opt_header( $namespace ) {
 		 'fields'           => $fields
 	) );
 }
+
+/**
+ * Sidebar Layout
+**/
+
+function span_opt_sidebar( $namespace ) {
+	$fields		=	array();
+	$fields[]	=	array(
+		'id'       => $namespace . '_sidebar_layout',
+		'type'     => 'select',
+		'title'    => __( 'Layout', 'span'),
+		'subtitle' => sprintf( __( 'You can set %s sidebar.', 'span') , ucwords( $namespace ) ),
+		'desc'	  => __( 'This settings can be overrided by more specific settings such as those applied on single items.', 'span' ),
+		'options' => array(
+			'left-sidebar' 	=> __( 'Left Sidebar', 'span' ), 
+			'right-sidebar' 	=> __( 'Right Sidebar', 'span' ),
+			'no-sidebar' 	=> __( 'No Sidebar', 'span' )
+		), 
+		'default' => 'right-sidebar'
+	);
+	
+	if( $namespace === 'pages' ) {
+		// Displays page title
+		$fields[]	=	array(
+			 'id'       => $namespace . '_display_page_title',
+			 'type'     => 'switch', 
+			 'title'    => __('Display Page Title', 'span'),
+			 'desc'		=>	__( 'This option let you disable inner content page title.', 'span' ),
+			 'default'  => true,
+		);
+	}
+	
+	// Menu
+	$fields[]	=	array(
+		 'id'       => $namespace . '_left_sidebar',
+		 'type'     => 'select', 
+		 'title'    => __('Select Left Sidebar Sidebar', 'span'),
+		 'desc'		=>	__( 'This option let you choose a custom sidebar for left sidebar. If this fields is left blank, default menu defined on <strong>"Appearance > Widgets"</strong> will be used instead.', 'span' ),
+		 'data'  	=> 'sidebar',
+	);
+	
+	$fields[]	=	array(
+		 'id'       => $namespace . '_right_sidebar',
+		 'type'     => 'select', 
+		 'title'    => __('Select Right Sidebar Sidebar', 'span'),
+		 'desc'		=>	__( 'This option let you choose a custom sidebar for right sidebar. If this fields is left blank, default menu defined on <strong>"Appearance > Widgets"</strong> will be used instead.', 'span' ),
+		 'data'  => 'sidebar',
+	);
+	
+	Redux::setSection( SPAN_OPT_NAME, array(
+		 'title'            => __( 'Sidebar', 'span' ),
+		 'id'               => $namespace . '_sidebar',
+		 'subsection'       => true,
+		 'customizer_width' => '450px',
+		 'desc'             => sprintf( __( 'This hold options for %s sidebar', 'span'), ucwords( $namespace ) ),
+		 'fields'           => $fields
+	) );	
+}
+
+/**
+ * Page Banner
+**/
+
+function span_opt_pheader( $namespace ) {
+	// Displays Header
+	$fields[]	=	array(
+		 'id'       => $namespace . '_display_pbanner',
+		 'type'     => 'switch', 
+		 'title'    => __('Display Page Banner', 'span'),
+		 'default'  => true,
+	);
+	
+	// BreadScrubms
+	$fields[]	=	array(
+		 'id'       => $namespace . '_display_breads',
+		 'type'     => 'switch', 
+		 'title'    => __('Display Breadscrumbs', 'span'),
+		 'default'  => true,
+	);
+	
+	Redux::setSection( SPAN_OPT_NAME, array(
+		 'title'            => __( 'Page banner', 'span' ),
+		 'id'               => $namespace . '_page_banner',
+		 'subsection'       => true,
+		 'customizer_width' => '450px',
+		 'desc'             => sprintf( __( 'This hold options for %s page banner options', 'span'), ucwords( $namespace ) ),
+		 'fields'           => $fields
+	) );
+}

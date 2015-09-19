@@ -8,12 +8,13 @@
  */
 
 ?>
-
+<?php if( intval( span_hopt( 'display_page_title', span_tag_hierarchy(), '1' ) ) == true ):?>
 <h4 class="classic-title" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
    <span>
       <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
    </span>
 </h4>
+<?php endif; // end display_page_title;?>
 
 <?php the_content(); ?>
 

@@ -18,7 +18,11 @@
       </span>
    </div>
    <!-- Post feature-inner -->
-   <div class="feature-inner"> <a class="lightbox" href="<?php echo span_post_thumb( 'full' );?>"><img src="<?php echo span_post_thumb( 'blog-posts' );?>" alt=""></a> </div>
+   <?php
+	$blog_post	=	span_post_thumb( 'blog-posts' );
+	$full_blog	=	span_post_thumb( 'full-blog' );
+	?>
+   <div class="feature-inner"> <a class="lightbox" href="<?php echo span_post_thumb( 'full' );?>"><img src="<?php echo span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'no-sidebar' ? $full_blog : $blog_post;?>" alt=""></a> </div>
    <!-- End Post feature-inner -->
    <?php endif;?>
    <!-- Post Content -->
@@ -65,7 +69,7 @@
          <i class="fa fa-angle-right"></i></a> </div>
    </div>
 </div>
-
+<?php return;?>
 <article <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>

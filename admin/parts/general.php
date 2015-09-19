@@ -8,13 +8,10 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-home'
 ) );
 
-span_opt_topbar( 'general' );
+global $option_namespace;
+$option_namespace = 'general';
 
-span_opt_header( 'general' );
-
-span_opt_footer( 'general' );
-
-span_opt_layout( 'general' );
+require( get_template_directory() . '/admin/parts/_global-options.php' );
 
 // Logo Details
 Redux::setSection( $opt_name, array(

@@ -8,4 +8,7 @@ Redux::setSection( $opt_name, array(
     'icon'             => 'el el-search'
 ) );
 
-span_opt_layout( 'search' );
+global $option_namespace;
+$option_namespace = 'search';
+
+require( get_template_directory() . '/admin/parts/_global-options.php' );

@@ -744,3 +744,11 @@ function span_skin_collection() {
 	 ),
 );
 }
+
+/**
+ * Span Sidebar Manager
+**/
+
+function span_sidebar_layout( $format ) {
+	
+}

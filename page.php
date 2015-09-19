@@ -16,11 +16,19 @@
 <?php get_header(); ?>
 
 <?php get_template_part( 'page' , 'banner' );?>
+
 <div id="content">
    <div class="container">
       <div class="row sidebar-page"> 
+      
+      	<?php if( span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'left-sidebar' ):?>
+         <!--Sidebar-->
+         <?php get_sidebar( 'left' );?>
+         <!--End sidebar-->
+         <?php endif;?>
+         
          <!-- Page Content -->
-         <div class="col-md-9 page-content"> 
+         <div class="col-md-<?php echo ( span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'no-sidebar' ) ? 12 : 9;?> page-content"> 
             <!-- Classic Heading -->
             <?php while ( have_posts() ) : the_post(); ?>
             
@@ -38,9 +46,12 @@
          </div>
          <!-- End Page Content--> 
          
+         <?php if( span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'right-sidebar' ):?>
          <!--Sidebar-->
          <?php get_sidebar( 'right' );?>
-         <!--End sidebar--> 
+         <!--End sidebar-->
+         <?php endif;?>
+         
       </div>
    </div>
 </div>

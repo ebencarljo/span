@@ -115,10 +115,10 @@
                 </a>
               </div>
               <!-- Form for navbar search area -->
-              <form class="full-search">
+              <form class="full-search" action="<?php echo home_url( '/' );?>">
                 <div class="container">
                   <div class="row">
-                    <input class="form-control" type="text" placeholder="Type to Search">
+                    <input class="form-control" name="s" type="text" placeholder="<?php _e( 'Type to search', 'span' );?>">
                     <a class="close-search">
                     <span class="fa fa-times fa-2x">
                     </span>
