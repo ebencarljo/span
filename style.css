@@ -389,7 +389,7 @@ ul.social-list li {
 }
 ul.social-list li a {
   display: inline-block;
-  color: #808C8C;
+  color: #EFEFEF;
   transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
