@@ -752,3 +752,20 @@ function span_skin_collection() {
 function span_body_width() {
 	return ( span_hopt( 'sidebar_layout', span_tag_hierarchy(), 'right-sidebar' ) === 'no-sidebar' ) ? 12 : 9;
 }
+
+/**
+ *
+**/
+function span_footer_debug( $name ) {
+	if( intval( span_hopt( 'debug_mode', span_tag_hierarchy(), '1' ) ) == true ):?>
+      <div class="call-action call-action-boxed call-action-style1 clearfix" style="color:#333;margin:5px 0px 60px 0px;">
+        <!-- Call Action Button -->
+        <div class="button-side" style="margin-top:8px;float:none;">
+        	<a href="<?php echo admin_url( 'widgets.php' );?>" class="btn btn-small btn-effect"><?php _e( 'Change Sidebar', 'span' );?></a>
+        </div>
+        <h2 class="primary"><strong>Span</strong> <?php _e( 'No widgets assigned to this sidebar', 'span' );?></h2>
+        <p><?php echo sprintf( __( 'Log to your dashboard to assign a widget to this area : <strong>%s</strong>', 'span' ), $name );?></p>
+      </div>
+   <?php
+	endif;
+}

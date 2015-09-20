@@ -125,7 +125,7 @@ class TheLib_1_0_17 {
 	protected function _include_path( $file ) {
 		static $Path = null;
 		if ( null === $Path ) {
-			$Path = get_template_directory() . '/inc/';
+			$Path = get_template_directory() . '/thirds/custom-sidebars/inc/external/wpmu-lib/inc/';
 		}
 		return $Path . $file;
 	}

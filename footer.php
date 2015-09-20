@@ -17,25 +17,41 @@
           <div class="row footer-widgets">
             <!-- Start Contact Widget -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <?php dynamic_sidebar( 'footer-A' );?>
+            <?php if( is_active_sidebar( 'footer-A' ) ):?>
+            	<?php dynamic_sidebar( 'footer-A' );?>
+            <?php else:?>
+            	<?php span_footer_debug( 'footer-A' );?>
+            <?php endif;?>
             </div>
             <!-- .col-md-3 -->
             <!-- End Contact Widget -->
             <!-- Start Recent Posts Widget -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <?php dynamic_sidebar( 'footer-B' );?>
+				<?php if( is_active_sidebar( 'footer-B' ) ):?>
+            	<?php dynamic_sidebar( 'footer-B' );?>
+            <?php else:?>
+            	<?php span_footer_debug( 'footer-B' );?>
+            <?php endif;?>
             </div>
             <!-- .col-md-3 -->
             <!-- End Recent posts Widget -->
             <!-- Start Tags Widget -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <?php dynamic_sidebar( 'footer-C' );?>
+            <?php if( is_active_sidebar( 'footer-C' ) ):?>
+            	<?php dynamic_sidebar( 'footer-C' );?>
+            <?php else:?>
+            	<?php span_footer_debug( 'footer-C' );?>
+            <?php endif;?>
             </div>
             <!-- .col-md-3 -->
             <!-- End Twitter Widget -->
             <!-- Start Flickr Widget -->
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <?php dynamic_sidebar( 'footer-D' );?>
+              <?php if( is_active_sidebar( 'footer-D' ) ):?>
+            	<?php dynamic_sidebar( 'footer-D' );?>
+            <?php else:?>
+            	<?php span_footer_debug( 'footer-D' );?>
+            <?php endif;?>
             </div>
             <!-- .col-md-3 -->
             <!-- End Flickr Widget -->
@@ -146,6 +162,11 @@ if( $footer_color_type ) { // is palette is defined
 }
 ?>    
 </style>
-
+<style id="custom-css">
+<?php echo span_hopt( 'custom_css', span_tag_hierarchy(), '' );?>
+</style>
+<script>
+<?php echo span_hopt( 'ga_tracking_code', span_tag_hierarchy(), '' );?>
+</script>
 </body>
 </html>

@@ -128,17 +128,33 @@
               </form>
               <!-- Search form ends -->
               <!-- Start Navigation List -->
-              <?php wp_nav_menu( array(
-                    'theme_location'	=>	'primary',
-						  'container'			=>	'',
-                    'menu_class'		=>	'nav navbar-nav navbar-right',
-                    'items_wrap'		=>	'<ul id="%1$s" class="%2$s">%3$s</ul>',
-                    'walker'				=>	new Span_Desktop_Menu_Walker
-              ) );?>
+              <?php 
+				  if( has_nav_menu( 'primary' ) ) {
+					  wp_nav_menu( array(
+							  'theme_location'	=>	'primary',
+							  'container'			=>	'',
+							  'menu_class'		=>	'nav navbar-nav navbar-right',
+							  'items_wrap'		=>	'<ul id="%1$s" class="%2$s">%3$s</ul>',
+							  'walker'				=>	new Span_Desktop_Menu_Walker
+					  ) );
+				  } else {
+					  ?>
+                 <ul class="nav navbar-nav navbar-right">
+                   <li>
+                   <?php if( intval( span_hopt( 'debug_mode', span_tag_hierarchy(), '1' ) ) == true ):?>
+                     <a href="<?php echo admin_url( 'nav-menus.php' );?>">
+                     <?php _e( 'No menu bind to this location', 'span' );?>
+                     </a>
+						 <?php endif;?>                     
+                   </li>
+                 </ul>
+                 <?php
+				  }
+				  ;?>
               <!-- End Navigation List -->
             </div>
           </div>
-
+			<?php if( has_nav_menu( 'header_mobile' ) ):?>
           <!-- Mobile Menu Start -->
           <?php wp_nav_menu( array(
                 'theme_location'	=>	'header_mobile',
@@ -148,6 +164,17 @@
                 'walker'			=>	new Span_Desktop_Menu_Walker
           ) );?>
           <!-- Mobile Menu End -->
+          <?php else: ?>
+          <ul class="wpb-mobile-menu">
+             <li>
+             <?php if( intval( span_hopt( 'debug_mode', span_tag_hierarchy(), '1' ) ) == true ):?>
+               <a href="<?php echo admin_url( 'nav-menus.php' );?>">
+               <?php _e( 'No menu bind to this location', 'span' );?>
+               </a>
+				 <?php endif;?>
+             </li>
+           </ul>
+          <?php endif;?>
 
         </div>
         <!-- End Header Logo & Naviagtion -->

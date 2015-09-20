@@ -34,3 +34,37 @@ Redux::setSection( $opt_name, array(
         )
     )
 ) );
+
+// Logo Details
+Redux::setSection( $opt_name, array(
+    'title'            => __( 'Advanced', 'span' ),
+    'id'               => 'advanced_settings',
+    'subsection'       => true,
+    'customizer_width' => '450px',
+    'desc'             => __( 'You can change advanced setting.', 'span'),
+    'fields'           => array(
+		  array(
+				 'id'       => 'general_debug_mode',
+				 'type'     => 'switch', 
+				 'title'    => __('Enable Debug Mode', 'span'),
+				 'desc'		=>	__( 'This option enable debug mode, which will let you know the current state of menu, widgets, sidebars and many other useful informations.', 'span' ),
+				 'default'  => true,
+			),
+			array(
+				 'id'       => 'general_custom_css',
+				 'type'     => 'ace_editor',
+				 'title'    => __('Custom CSS Code', 'span'),
+				 'mode'     => 'css',
+				 'theme'    => 'monokai',
+				 'desc'     => 'Improve Span style by adding your custom CSS changes.',
+				 'default'  => "/** Your Code here... **/"
+			),
+			array(
+				'id'       => 'general_ga_tracking_code',
+				'type'     => 'textarea',
+				'title'    => __('Google Analaytics Tracking Code', 'span'),
+				'desc'     => __('You can provide your Google Analytics in order to track user visit.', 'span'),
+				'default'  => ''
+			)
+    )
+) );

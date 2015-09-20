@@ -68,13 +68,6 @@ function span_opt_footer( $namespace ) {
 			'title'    => __('Footer Copyright', 'span'),
 			'desc'     => __('You can set custom copyright on footer.', 'span'),
 		);
-		$fields[]		=		array(
-			'id'       => $namespace . '_ga_tracking_code',
-			'type'     => 'textarea',
-			'title'    => __('Google Analaytics Tracking Code', 'span'),
-			'desc'     => __('You can provide your Google Analytics in order to track user visit.', 'span'),
-			'default'  => ''
-		);
 	 endif;
 	 
 	 $fields[]			=	array(
