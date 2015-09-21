@@ -669,7 +669,7 @@ function span_tag_hierarchy() {
 	} elseif( is_search() ){
 		$hierarchy			=	array( 'general_' );
 	} elseif( is_404() ){
-		$hierarchy			=	array( '404_' );
+		$hierarchy			=	array( '404_', 'general_' );
 	} else { // general options is applied
 		$hierarchy			=	array( 'general_' );
 	}
@@ -760,8 +760,7 @@ function span_body_width() {
 /**
  *
 **/
-function span_footer_debug( $name ) {
-	var_dump( span_hopt( 'debug_mode', span_tag_hierarchy(), '1' ) );
+function span_footer_debug( $name ) {	
 	if( intval( span_hopt( 'debug_mode', span_tag_hierarchy(), '1' ) ) == true ):?>
       <div class="call-action call-action-boxed call-action-style1 clearfix" style="color:#333;margin:5px 0px 60px 0px;">
         <!-- Call Action Button -->
