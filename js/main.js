@@ -69,13 +69,72 @@ jQuery(document).ready(function(jQuery) {
   "use strict";
   ////	Hidder Header
   var headerEle = function() {
-    var jQueryheaderHeight = jQuery('header').outerHeight();
+    var jQueryheaderHeight = jQuery('header').height();
     jQuery('.hidden-header').css({
       'height': parseInt( jQueryheaderHeight ) + "px"
     });
 	 jQuery('#container').find( 'header' ).eq(0).css({
 		 'top': jQuery('#wpadminbar').height() + 'px'
 	 });
+	 
+	 // Sticky Jeader
+	 var docElem = document.documentElement,
+      didScroll = false,
+      changeHeaderOn = 100;
+    document.querySelector('header');
+
+    function init() {
+      window.addEventListener('scroll', function() {
+        if (!didScroll) {
+          didScroll = true;
+          setTimeout(scrollPage, 250);
+        }
+      }, false);
+    }
+
+    function scrollPage() {
+      var sy = scrollY();
+      if (sy >= changeHeaderOn) {
+        jQuery('.top-bar').slideUp(300);
+        jQuery("header").addClass("fixed-header");
+        if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || jQuery(window).width() < 479) {
+          jQuery('.navbar-default .navbar-nav > li > a').css({
+            'padding-top': 12 + "px",
+            'padding-bottom': 12 + "px"
+          })
+        } else {
+          jQuery('.navbar-default .navbar-nav > li > a').css({
+            'padding-top': 8 + "px",
+            'padding-bottom': 8 + "px"
+          })
+          jQuery('.search-side').css({
+            'margin-top': 0 + "px"
+          });
+        };
+      } else {
+        jQuery('.top-bar').slideDown(300);
+        if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || jQuery(window).width() < 479) {
+          jQuery('.navbar-default .navbar-nav > li > a').css({
+            'padding-top': 15 + "px",
+            'padding-bottom': 15 + "px"
+          })
+        } else {
+          jQuery('.navbar-default .navbar-nav > li > a').css({
+            'padding-top': 8 + "px",
+            'padding-bottom': 8 + "px"
+          })
+          jQuery('.search-side').css({
+            'margin-top': 0 + "px"
+          });
+        };
+      }
+      didScroll = false;
+    }
+
+    function scrollY() {
+      return window.pageYOffset || docElem.scrollTop;
+    }
+    init();
   };
   
   jQuery(window).load(function() {
@@ -84,8 +143,6 @@ jQuery(document).ready(function(jQuery) {
   jQuery(window).resize(function() {
     headerEle();
   });
-  
-  
 
   // Progress Bar
   jQuery('.skill-shortcode').appear(function() {
@@ -420,66 +477,7 @@ jQuery(document).ready(function(jQuery) {
   jQuery('.touch-carousel, .testimonials-carousel').find('.owl-next').html('<i class="fa fa-angle-right"></i>');
   jQuery('.read-more').append('<i class="fa fa-angle-right"></i>');
 
-  //	Sticky Header
-  (function() {
-    var docElem = document.documentElement,
-      didScroll = false,
-      changeHeaderOn = 100;
-    document.querySelector('header');
-
-    function init() {
-      window.addEventListener('scroll', function() {
-        if (!didScroll) {
-          didScroll = true;
-          setTimeout(scrollPage, 250);
-        }
-      }, false);
-    }
-
-    function scrollPage() {
-      var sy = scrollY();
-      if (sy >= changeHeaderOn) {
-        jQuery('.top-bar').slideUp(300);
-        jQuery("header").addClass("fixed-header");
-        if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || jQuery(window).width() < 479) {
-          jQuery('.navbar-default .navbar-nav > li > a').css({
-            'padding-top': 12 + "px",
-            'padding-bottom': 12 + "px"
-          })
-        } else {
-          jQuery('.navbar-default .navbar-nav > li > a').css({
-            'padding-top': 8 + "px",
-            'padding-bottom': 8 + "px"
-          })
-          jQuery('.search-side').css({
-            'margin-top': 0 + "px"
-          });
-        };
-      } else {
-        jQuery('.top-bar').slideDown(300);
-        if (/iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || jQuery(window).width() < 479) {
-          jQuery('.navbar-default .navbar-nav > li > a').css({
-            'padding-top': 15 + "px",
-            'padding-bottom': 15 + "px"
-          })
-        } else {
-          jQuery('.navbar-default .navbar-nav > li > a').css({
-            'padding-top': 8 + "px",
-            'padding-bottom': 8 + "px"
-          })
-          jQuery('.search-side').css({
-            'margin-top': 0 + "px"
-          });
-        };
-      }
-      didScroll = false;
-    }
-
-    function scrollY() {
-      return window.pageYOffset || docElem.scrollTop;
-    }
-    init();
-  })();
+  // Sticky Header Removed
 });
 // End JS Document
 

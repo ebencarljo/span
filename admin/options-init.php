@@ -146,4 +146,7 @@
 
     // author settings
     require get_template_directory() . '/admin/parts/authors.php';
+	 
+	 // 404 settings
+    require get_template_directory() . '/admin/parts/404.php';
     

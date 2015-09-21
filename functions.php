@@ -73,12 +73,6 @@ function span_setup() {
 		'link',
 		'audio'
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'span_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 	
 	// Image Size
 	add_image_size( 'blog-posts', 848, 435, true ); // with a sidebar (left or right)
