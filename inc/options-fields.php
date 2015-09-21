@@ -175,7 +175,7 @@ function span_opt_topbar( $namespace ) {
             'type'     => 'sortable',
             'title'    => __('Provide links for your social profiles', 'span'),
             'subtitle' => __('Define and reorder these however you want.', 'span'),
-            // 'desc'     => __('.', 'redux-framework-demo'),
+            // 'desc'     => __('.', 'span'),
             'mode'     => 'text',
             'options' => array( 
                 'facebook'      =>  '#Facebook', 
@@ -191,7 +191,7 @@ function span_opt_topbar( $namespace ) {
             'type'     => 'sortable',
             'title'    => __('Provide links for top bar details', 'span'),
             'subtitle' => __('Define and reorder these however you want.', 'span'),
-            // 'desc'     => __('.', 'redux-framework-demo'),
+            // 'desc'     => __('.', 'span'),
             'mode'     => 'text',
             'options' => array( 
                 'phone'      =>  '#Phone', 
@@ -352,7 +352,75 @@ function span_opt_pheader( $namespace ) {
 		 'id'               => $namespace . '_page_banner',
 		 'subsection'       => true,
 		 'customizer_width' => '450px',
-		 'desc'             => sprintf( __( 'This hold options for %s page banner options', 'span'), ucwords( $namespace ) ),
+		 'desc'             => sprintf( __( 'This hold options for %s page banner', 'span'), ucwords( $namespace ) ),
+		 'fields'           => $fields
+	) );
+}
+
+/**
+ * Post Meta
+**/
+
+function span_opt_post( $namespace ) {
+	// Meta
+	$fields		=	array();
+	$fields[]	=	array(
+		 'id'       => $namespace . '_post_meta',
+		 'type'     => 'checkbox',
+		 'title'    => __('Post Meta', 'span'), 
+		 'desc'     => __('You can enable or disable a meta according to your needs.', 'span'),
+	 
+		 //Must provide key => value pairs for multi checkbox options
+		 'options'  => array(
+			  'date' 		=> __( 'Display date', 'span' ),
+			  'category'	=> __( 'Display category', 'span' ),
+			  'tag' 			=> __( 'Display tag (on single post)', 'span' ),
+			  'like' 		=> __( 'Display like', 'span' ), // premium feature
+			  'comments'	=> __( 'Display comments', 'span' ),
+			  'author' 		=> __( 'Display author', 'span' ),
+		 ),
+	 
+		 //See how default has changed? you also don't need to specify opts that are 0.
+		 'default' 			=> array(
+			  'date' 		=> '1', 
+			  'category' 	=> '1', 
+			  'tag' 			=> '1',
+			  'like'			=>	'1',
+			  'comments'	=>	'1',
+			  'author'		=>	'1'
+		 )
+	);
+	
+	// Share
+	$fields[]	=	array(
+		 'id'       => $namespace . '_post_share',
+		 'type'     => 'checkbox',
+		 'title'    => __('Social Share', 'span'), 
+		 'desc'     => __('Pick at least one service to enable post share feature.', 'span'),
+	 
+		 //Must provide key => value pairs for multi checkbox options
+		 'options'  => array(
+			  'facebook'	=> __( 'Facebook', 'span' ), // premium feature
+			  'twitter' 	=> __( 'Twitter', 'span' ),
+			  'google' 		=> __( 'Google+', 'span' ),
+			  'linkedin' 	=> __( 'LinkedIn', 'span' ),
+		 ),
+	 
+		 //See how default has changed? you also don't need to specify opts that are 0.
+		 'default' => array(
+			  'facebook' 	=> '0', 
+			  'twitter' 	=> '1', 
+			  'google' 		=> '1',
+			  'linkedin'	=>	'1',
+		 )
+	);
+	
+	Redux::setSection( SPAN_OPT_NAME, array(
+		 'title'            => __( 'Post Options', 'span' ),
+		 'id'               => $namespace . '_post_options',
+		 'subsection'       => true,
+		 'customizer_width' => '450px',
+		 'desc'             => sprintf( __( 'This hold options for %s post', 'span'), ucwords( $namespace ) ),
 		 'fields'           => $fields
 	) );
 }

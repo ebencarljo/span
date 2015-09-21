@@ -5,7 +5,7 @@ Redux::setSection( $opt_name, array(
     'id'               => '404_options',
     'desc'             => __( 'General Options for 404 page', 'span' ),
     'customizer_width' => '400px',
-    'icon'             => 'el el-circle'
+    'icon'             => 'el el-minus-sign'
 ) );
 
 global $option_namespace;

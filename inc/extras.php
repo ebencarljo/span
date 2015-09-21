@@ -773,3 +773,85 @@ function span_footer_debug( $name ) {
    <?php
 	endif;
 }
+
+/**
+*	Returns if array key exists. If not, return false if $default is not set or return $default instead
+*	@access		:	Public
+*	@params		:	String (Key), $subject, $default
+**/
+function riake( $key , $subject, $default = false ){	
+	if( is_array( $subject ) )
+	{
+		return array_key_exists($key, $subject) ? $subject[ $key ] : $default;
+	}
+	return $default;
+}
+
+/**
+ * post_meta
+**/
+
+function span_post_meta() {
+	?>
+   <div class="meta">
+		<?php $meta_options	=	span_hopt( 'post_meta', span_tag_hierarchy(), array() );?>
+      <?php if( ! empty( riake( 'blog', $meta_options, '1' ) ) ):?>
+      <span class="meta-part">
+         <a href="#"><i class="icon-clock"></i>
+         <?php span_posted_on(); ?>
+         </a>
+      </span>
+      <?php endif;
+      if( ! empty( riake( 'comments', $meta_options ) ) ):?>
+      <span class="meta-part">
+         <a href="<?php the_permalink();?>#comments"><i class="icon-bubbles"></i> <?php echo span_comments_nbr();?></a>
+      </span>
+      <?php endif;
+      if( ! empty( riake( 'like', $meta_options ) ) ):?>
+      <span class="meta-part">
+         <a href="#"><i class="icon-like "></i> 214 Likes</a>
+      </span>
+      <?php 
+      endif;
+      if( ! empty( riake( 'category', $meta_options ) ) ):?>
+      <span class="meta-part">
+         <i class="icon-folder"></i> <?php echo span_categories();?>
+      </span>
+      <?php endif;
+      if( ! empty( riake( 'author', $meta_options ) ) ):?>
+      <span class="meta-part">
+         <?php echo span_author_link( 'icon-user' );?>
+      </span>
+      <?php endif;?>
+   </div>
+   <?php
+}
+
+/**
+ * Post Share
+**/
+
+function span_post_share() {
+	$post_share		=	span_hopt( 'post_share', span_tag_hierarchy(), array() );
+	if( ! empty( $post_share ) ):
+	?>
+   <div class="social-link pull-left">
+      <span>
+         <?php _e( 'Share this post' , 'span' );?>
+      </span>
+      <?php if( ! empty( riake( 'twitter', $post_share, '1' ) ) ):?>
+      <a class="twitter" target="_blank" data-original-title="twitter" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-twitter"></i></a> 
+      <?php endif;?>
+      <?php if( ! empty( riake( 'facebook', $post_share, '1' ) ) ):?>
+      <a class="facebook" target="_blank" data-original-title="facebook" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-facebook"></i></a> 
+      <?php endif;?>
+      <?php if( ! empty( riake( 'google', $post_share, '1' ) ) ):?>
+      <a class="google" target="_blank" data-original-title="google-plus" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-google-plus"></i></a> 
+      <?php endif;?>
+      <?php if( ! empty( riake( 'linkedin', $post_share, '1' ) ) ):?>
+      <a class="linkedin" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-linkedin"></i></a> 
+      <?php endif;?>      
+   </div>
+   <?php
+	endif;
+}
